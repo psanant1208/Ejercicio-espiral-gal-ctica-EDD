@@ -2,9 +2,9 @@ package main.java.model;
 
 public class Espiral {
 	
-	protected int[][] matriz;
-	protected int dimension;
-	protected int[] centro;
+	private int[][] matriz;
+	private int dimension;
+	private int[] centro;
 	
 	public Espiral(int[][] matriz) {
 		super();
@@ -42,6 +42,22 @@ public class Espiral {
 	}
 
 	
+	public int[][] getMatriz() {
+		return matriz;
+	}
+
+	public void setMatriz(int[][] matriz) {
+		this.matriz = matriz;
+	}
+
+	public int getDimension() {
+		return dimension;
+	}
+
+	public int[] getCentro() {
+		return centro;
+	}
+
 }
 
 
