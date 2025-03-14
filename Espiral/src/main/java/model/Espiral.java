@@ -17,7 +17,12 @@ public class Espiral {
 	}
 	
 	public int[] calcularCentro() {
-		
+		int filas = this.matriz.length;
+		int columnas = this.matriz[0].length;
+		int[] centro;
+
+			centro = new int[] {(int)filas /2+1, (int)columnas/2+1};
+			return centro;
 	}
 	
 	public void sumarEstrellas(int x, int y) {
