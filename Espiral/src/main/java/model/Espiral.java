@@ -7,6 +7,7 @@ public class Espiral {
 	private int[] centro;
 	private int actualX;
 	private int actualY;
+	private int almacenarSumaEstrellas; //Variable que almacena la suma de las estrellas
 	
 	public Espiral(int[][] matriz) {
 		super();
@@ -20,7 +21,11 @@ public class Espiral {
 	}
 	
 	public void sumarEstrellas(int x, int y) {
-		
+		int sumar = 0;
+		if(x>=0 && x<dimension && y>=0 && y<dimension) {
+			sumar += matriz[x][y];
+		}
+		almacenarSumaEstrellas += sumar;
 	}
 	
 	public void comenzarSumatorio() {
