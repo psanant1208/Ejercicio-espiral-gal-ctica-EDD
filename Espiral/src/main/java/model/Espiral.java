@@ -5,6 +5,8 @@ public class Espiral {
 	private int[][] matriz;
 	private int dimension;
 	private int[] centro;
+	private int actualX;
+	private int actualY;
 	
 	public Espiral(int[][] matriz) {
 		super();
