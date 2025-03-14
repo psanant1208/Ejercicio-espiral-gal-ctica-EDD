@@ -32,7 +32,10 @@ public class Espiral {
 	}
 	
 	public void desplazarIzquierda(int numPaso) {
-		
+		for (int i =0; i<numPaso;i++){
+			actualX--;
+			sumarEstrellas(actualX, actualY);
+		}
 	}
 	
 	public void desplazarAbajo(int numPaso) {
