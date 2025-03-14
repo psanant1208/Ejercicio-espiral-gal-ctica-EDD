@@ -24,7 +24,24 @@ public class Espiral {
 	}
 	
 	public void comenzarSumatorio() {
-		
+		actualX = centro[0];
+        actualY = centro[1];
+        sumarEstrellas(actualX,actualY);
+
+        int numPaso = 0;
+        while (actualX>=0 && actualX<dimension && actualY>=0) {
+            numPaso++;
+            //Cada 4 veces se ejecuta cada 1 de los metodos
+            if(numPaso%4 == 1) {
+                desplazarArriba(numPaso);
+            }else if(numPaso%4 == 2) {
+                desplazarDerecha(numPaso);
+            }else if(numPaso%4 == 3) {
+                desplazarAbajo(numPaso);
+            }else if(numPaso%4 == 0) {
+                desplazarIzquierda(numPaso);
+            }
+        }
 	}
 	
 	public void desplazarArriba(int numPaso) {
