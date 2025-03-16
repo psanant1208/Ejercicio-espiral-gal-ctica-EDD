@@ -44,7 +44,7 @@ public class Espiral {
             //Cada 4 veces se ejecuta cada 1 de los metodos
             if(numPaso%4 == 1) {
                 desplazarArriba(numPaso);
-            }else if(numPaso%4 == 2) {
+            }else if(numPaso%4 == 2) { 
                 desplazarDerecha(numPaso);
             }else if(numPaso%4 == 3) {
                 desplazarAbajo(numPaso);
@@ -59,7 +59,7 @@ public class Espiral {
 			actualY--;
 			sumarEstrellas(actualX,actualY);
 		}
-	}
+	} 
 	
 	public void desplazarIzquierda(int numPaso) {
 		for (int i =0; i<numPaso;i++){
@@ -114,6 +114,16 @@ public class Espiral {
         }
         return sb.toString();
     }
+
+	public int getAlmacenarSumaEstrellas() {
+		return almacenarSumaEstrellas;
+	}
+
+	public void setAlmacenarSumaEstrellas(int almacenarSumaEstrellas) {
+		this.almacenarSumaEstrellas = almacenarSumaEstrellas;
+	}
+	 
+	 
 
 }
 
