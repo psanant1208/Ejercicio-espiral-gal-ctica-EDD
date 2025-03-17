@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import main.java.model.Espiral;
 
 class EspiralTests {
 
@@ -24,13 +23,15 @@ class EspiralTests {
 	void testConstructor() {
 		assertNotNull(espiral);
 		assertEquals(3, espiral.getDimension());
-
 	}
 
 	// Pruebas para calcularCentro
 	@Test
 	void testCalcularCentro() {
-
+		// Aquí verificamos que el centro se calcula correctamente para una matriz 3x3
+		espiral.calcularCentro();
+		assertEquals(1, espiral.getCentro()[0]);
+		assertEquals(1, espiral.getCentro()[1]);
 	}
 
 	// Pruebas para sumarEstrellas
@@ -50,13 +51,22 @@ class EspiralTests {
 	// Pruebas para comenzarSumatorio
 	@Test
 	void testComenzarSumatorio() {
-
+		// Verificamos que el sumatorio comienza correctamente
+		espiral.comenzarSumatorio();
+		assertEquals(0, espiral.getAlmacenarSumaEstrellas()); // Suponiendo que empieza en 0
 	}
 
 	// Pruebas para desplazarArriba
 	@Test
 	void testDesplazarArriba() {
+		// Desplazamos el centro de la espiral hacia arriba
+		espiral.desplazarArriba(1); // Desplazamos una vez hacia arriba
+		assertEquals(0, espiral.getCentro()[0]); // El centro debería moverse a la fila 0
+		assertEquals(1, espiral.getCentro()[1]); // La columna debería permanecer igual
 
+		// Desplazamos el centro de nuevo hacia arriba, fuera de la matriz
+		espiral.desplazarArriba(1); 
+		assertEquals(0, espiral.getCentro()[0]); // No debe moverse más allá de la fila 0
 	}
 
 	// Pruebas para desplazarDerecha
@@ -100,14 +110,14 @@ class EspiralTests {
 	// Pruebas para getCentro
 	@Test
 	void testGetCentro() {
-
+		// Verificamos que el centro devuelto sea el que se espera
+		assertArrayEquals(new int[] { 1, 1 }, espiral.getCentro()); // Suponiendo que el centro inicial es (1,1)
 	}
 
 	// Pruebas para toString
-
 	@Test
 	void testToString() {
-        String resultado = "Dimension: 3x3 Centro: (2, 2 Suma de estrellas: 0 Matriz: 1 2 3  4 5 6  7 8 9  ";
+        String resultado = "Dimension: 3x3 Centro: (2, 2) Suma de estrellas: 0 Matriz: 1 2 3  4 5 6  7 8 9  ";
         assertEquals(resultado, espiral.toString(), "El método toString no devuelve el resultado esperado");
 	}
 
