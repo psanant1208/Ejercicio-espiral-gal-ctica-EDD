@@ -100,20 +100,19 @@ public class Espiral {
 	}
 
 	 @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Dimension: ").append(dimension).append("x").append(dimension).append(" ");
-        sb.append("Centro: (").append(centro[0]).append(", ").append(centro[1]).append(" ");
-        sb.append("Suma de estrellas: ").append(almacenarSumaEstrellas).append(" ");
-        sb.append("Matriz: ");
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz[i].length; j++) {
-                sb.append(matriz[i][j]).append(" ");
-            }
-            sb.append(" ");
-        }
-        return sb.toString();
-    }
+		public String toString() {
+		    String resultado = "Dimension: " + dimension + "x" + dimension + "\n";
+		    resultado += "Centro: (" + centro[0] + ", " + centro[1] + ")\n";
+		    resultado += "Suma de estrellas: " + almacenarSumaEstrellas + "\n";
+		    resultado += "Matriz:\n";
+
+		    for (int i = 0; i < matriz.length; i++) {
+		        for (int j = 0; j < matriz[i].length; j++) {
+		            resultado += matriz[i][j] + " ";
+		        }
+		        resultado += "\n"; 
+		    } return resultado;
+		}
 
 	public int getAlmacenarSumaEstrellas() {
 		return almacenarSumaEstrellas;
