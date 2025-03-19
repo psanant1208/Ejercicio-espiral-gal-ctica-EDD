@@ -5,8 +5,8 @@ public class Espiral {
 	private int[][] matriz;
 	private int dimension;
 	private int[] centro;
-	private int actualX;
-	private int actualY;
+	private int actualRow;
+	private int actualColumn;
 	private int almacenarSumaEstrellas; // Variable que almacena la suma de las estrellas
 
 	public Espiral(int[][] matriz) {
@@ -25,21 +25,21 @@ public class Espiral {
 		return centro;
 	}
 
-	public void sumarEstrellas(int x, int y) {
+	public void sumarEstrellas(int row, int column) {
 		int sumar = 0;
-		if (x >= 0 && x < dimension && y >= 0 && y < dimension) {
-			sumar += matriz[x][y];
+		if (row >= 0 && row < dimension && column >= 0 && column < dimension) {
+			sumar += matriz[column][row];
 		}
 		almacenarSumaEstrellas += sumar;
 	}
 
 	public void comenzarSumatorio() {
-		actualX = centro[0];
-		actualY = centro[1];
-		sumarEstrellas(actualX, actualY);
+		actualRow = centro[0];
+		actualColumn = centro[1];
+		sumarEstrellas(actualRow, actualColumn);
 
 		int numPaso = 0;
-		while (actualX >= 0 && actualX < dimension && actualY >= 0) {
+		while (actualRow >= 0 && actualRow < dimension && actualColumn >= 0) {
 			numPaso++;
 			// Cada 4 veces se ejecuta cada 1 de los metodos
 			if (numPaso % 4 == 1) {
@@ -56,29 +56,29 @@ public class Espiral {
 
 	public void desplazarArriba(int numPaso) {
 		for (int i = 0; i < numPaso; i++) {
-			actualY--;
-			sumarEstrellas(actualX, actualY);
+			actualColumn--;
+			sumarEstrellas(actualRow, actualColumn);
 		}
 	}
 
 	public void desplazarIzquierda(int numPaso) {
 		for (int i = 0; i < numPaso; i++) {
-			actualX--;
-			sumarEstrellas(actualX, actualY);
+			actualRow--;
+			sumarEstrellas(actualRow, actualColumn);
 		}
 	}
 
 	public void desplazarAbajo(int numPaso) {
 		for (int i = 0; i < numPaso; i++) {
-			actualY++;
-			sumarEstrellas(actualX, actualY);
+			actualColumn++;
+			sumarEstrellas(actualRow, actualColumn);
 		}
 	}
 
 	public void desplazarDerecha(int numPaso) {
 		for (int i = 0; i < numPaso; i++) {
-			actualX++;
-			sumarEstrellas(actualX, actualY);
+			actualRow++;
+			sumarEstrellas(actualRow, actualColumn);
 		}
 	}
 
@@ -127,11 +127,11 @@ public class Espiral {
 	}
 
 	public void setAxtualX(int valor) {
-		this.actualX = valor;
+		this.actualRow = valor;
 	}
 
 	public void setActualY(int valor) {
-		this.actualY = valor;
+		this.actualColumn = valor;
 	}
 
 }

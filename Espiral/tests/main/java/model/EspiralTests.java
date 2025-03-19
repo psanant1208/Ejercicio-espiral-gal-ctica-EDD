@@ -81,9 +81,15 @@ class EspiralTests {
 	// Pruebas para desplazarAbajo
 	@Test
 	void testDesplazarAbajo() {
-        espiral.desplazarAbajo(2);
-        assertEquals(3, espiral.getCentro()[0]);
-        assertEquals(5, espiral.getCentro()[1]);
+		int[][] matrizSUT = new int[][] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+		int resultado = 18;
+		Espiral espiralSUT = new Espiral(matrizSUT);
+		
+		espiralSUT.setAxtualX(2);
+		espiralSUT.setActualY(-1);
+		espiralSUT.desplazarAbajo(3);
+		
+		assertEquals(resultado, espiralSUT.getAlmacenarSumaEstrellas());
 	}
 
 	// Pruebas para desplazarIzquierda
