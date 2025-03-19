@@ -51,9 +51,14 @@ class EspiralTests {
 	// Pruebas para comenzarSumatorio
 	@Test
 	void testComenzarSumatorio() {
-		// Verificamos que el sumatorio comienza correctamente
-		espiral.comenzarSumatorio();
-		assertEquals(0, espiral.getAlmacenarSumaEstrellas()); // Suponiendo que empieza en 0
+		int[][] matrizSUT = new int[][] { { 1, 2, 3, 4, 5 }, { 6, 7, 8, 9, 10 }, { 11, 12, 13, 14, 15 }, { 16, 17, 18, 19, 20 }, { 21, 22, 23, 24, 25 } };
+		Espiral espiralSUT = new Espiral(matrizSUT);
+		int result = 224;
+		espiralSUT.comenzarSumatorio();
+		
+		assertEquals(result, espiralSUT.getAlmacenarSumaEstrellas());
+		
+		
 	}
 
 	// Pruebas para desplazarArriba
