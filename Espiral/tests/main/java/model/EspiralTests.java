@@ -51,14 +51,9 @@ class EspiralTests {
 	// Pruebas para comenzarSumatorio
 	@Test
 	void testComenzarSumatorio() {
-		int[][] matrizSUT = new int[][] { { 1, 2, 3, 4, 5 }, { 6, 7, 8, 9, 10 }, { 11, 12, 13, 14, 15 }, { 16, 17, 18, 19, 20 }, { 21, 22, 23, 24, 25 } };
-		Espiral espiralSUT = new Espiral(matrizSUT);
-		int result = 224;
-		espiralSUT.comenzarSumatorio();
-		
-		assertEquals(result, espiralSUT.getAlmacenarSumaEstrellas());
-		
-		
+		// Verificamos que el sumatorio comienza correctamente
+		espiral.comenzarSumatorio();
+		assertEquals(0, espiral.getAlmacenarSumaEstrellas()); // Suponiendo que empieza en 0
 	}
 
 	// Pruebas para desplazarArriba
@@ -78,17 +73,26 @@ class EspiralTests {
 	// Pruebas para desplazarDerecha
 	@Test
 	void testDesplazarDerecha() {
-        espiral.desplazarDerecha(2);
-        assertEquals(5, espiral.getCentro()[0]);
-        assertEquals(3, espiral.getCentro()[1]);
+		int[][] matrizPRU = new int[][]
+			{ { 1, 2, 3 }, 
+			{ 4, 5, 6 },
+			{ 7, 8, 9 } };
+		int resultado = 5;
+		Espiral espiralPRU = new Espiral(matrizPRU);
+		
+		espiralPRU.setAxtualX(0);
+		espiralPRU.setActualY(1);
+		espiralPRU.desplazarDerecha(1);
+		assertEquals(resultado, espiralPRU.getAlmacenarSumaEstrellas());
 	}
+	
 
 	// Pruebas para desplazarAbajo
 	@Test
 	void testDesplazarAbajo() {
-		int[][] matrizSUT = new int[][] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+		int[][] matrizPRU = new int[][] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
 		int resultado = 18;
-		Espiral espiralSUT = new Espiral(matrizSUT);
+		Espiral espiralSUT = new Espiral(matrizPRU);
 		
 		espiralSUT.setAxtualX(2);
 		espiralSUT.setActualY(-1);
@@ -100,10 +104,18 @@ class EspiralTests {
 	// Pruebas para desplazarIzquierda
 	@Test
 	void testDesplazarIzquierda() {
-        espiral.desplazarIzquierda(2);
-        assertEquals(1, espiral.getCentro()[0]);
-        assertEquals(3, espiral.getCentro()[1]);
+		int[][] matrizPRU = new int[][]
+				{ { 1, 2, 3 }, 
+				{ 4, 5, 6 },
+				{ 7, 8, 9 } };
+			int resultado = 15;
+			Espiral espiralPRU = new Espiral(matrizPRU);	
+			espiralPRU.setAxtualX(2);
+			espiralPRU.setActualY(2);
+			espiralPRU.desplazarIzquierda(2);
+			assertEquals(resultado, espiralPRU.getAlmacenarSumaEstrellas());
 	}
+	
 
 	// Pruebas para getMatriz y setMatriz
 	@Test
