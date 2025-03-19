@@ -21,7 +21,7 @@ public class Espiral {
 		int columnas = this.matriz[0].length;
 		int[] centro;
 
-			centro = new int[] {(int)filas /2+1, (int)columnas/2+1};
+			centro = new int[] {(int)filas /2, (int)columnas/2};
 			return centro;
 	}
 	
