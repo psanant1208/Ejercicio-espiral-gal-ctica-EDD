@@ -114,12 +114,29 @@ class EspiralTests {
 		assertArrayEquals(new int[] { 1, 1 }, espiral.getCentro()); // Suponiendo que el centro inicial es (1,1)
 	}
 
-	// Pruebas para toString
-	@Test
-	void testToString() {
-        String resultado = "Dimension: 3x3 Centro: (2, 2) Suma de estrellas: 0 Matriz: 1 2 3  4 5 6  7 8 9  ";
-        assertEquals(resultado, espiral.toString(), "El método toString no devuelve el resultado esperado");
-	}
+	// Pruebas para toString		
+		 @Test
+		    public void testToString() {
+		        // Matriz de ejemplo 3x3
+		        int[][] matrizEjemplo = {
+		            {1, 2, 3},
+		            {4, 5, 6},
+		            {7, 8, 9}
+		        };
+
+		        Espiral espiral = new Espiral(matrizEjemplo);
+		        espiral.setAlmacenarSumaEstrellas(15); // Ejemplo suma
+		        String esperado = "Dimension: 3x3\n" +
+		                          "Centro: (2, 2)\n" +  // Centro matriz
+		                          "Suma de estrellas: 15\n" +
+		                          "Matriz:\n" +
+		                          "1 2 3 \n" +
+		                          "4 5 6 \n" +
+		                          "7 8 9 \n";
+
+		        // Si es correcto
+		        assertEquals(esperado, espiral.toString());
+		    }
 
 	// Pruebas para getAlmacenarSumaEstrellas y setAlmacenarSumaEstrellas
 	@Test
