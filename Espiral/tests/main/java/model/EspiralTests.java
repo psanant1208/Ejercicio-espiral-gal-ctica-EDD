@@ -59,14 +59,15 @@ class EspiralTests {
 	// Pruebas para desplazarArriba
 	@Test
 	void testDesplazarArriba() {
-		// Desplazamos el centro de la espiral hacia arriba
-		espiral.desplazarArriba(1); // Desplazamos una vez hacia arriba
-		assertEquals(0, espiral.getCentro()[0]); // El centro debería moverse a la fila 0
-		assertEquals(1, espiral.getCentro()[1]); // La columna debería permanecer igual
-
-		// Desplazamos el centro de nuevo hacia arriba, fuera de la matriz
-		espiral.desplazarArriba(1); 
-		assertEquals(0, espiral.getCentro()[0]); // No debe moverse más allá de la fila 0
+		int[][] matrizSUT = new int[][] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+		int resultado = 15;
+		Espiral espiralSUT = new Espiral(matrizSUT);
+		
+		espiralSUT.setAxtualX(1);
+		espiralSUT.setActualY(3);
+		espiralSUT.desplazarArriba(3);
+		
+		assertEquals(resultado, espiralSUT.getAlmacenarSumaEstrellas());
 	}
 
 	// Pruebas para desplazarDerecha
@@ -127,7 +128,7 @@ class EspiralTests {
 		        Espiral espiral = new Espiral(matrizEjemplo);
 		        espiral.setAlmacenarSumaEstrellas(15); // Ejemplo suma
 		        String esperado = "Dimension: 3x3\n" +
-		                          "Centro: (2, 2)\n" +  // Centro matriz
+		                          "Centro: (1, 1)\n" +  // Centro matriz
 		                          "Suma de estrellas: 15\n" +
 		                          "Matriz:\n" +
 		                          "1 2 3 \n" +
